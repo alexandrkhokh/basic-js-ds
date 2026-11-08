@@ -16,7 +16,10 @@ class Queue {
   head = null;
   tail = null;
 
-  getUnderlyingList = () => this.head;
+  getUnderlyingList() {
+    const copy = (node) => (node ? { value: node.value, next: copy(node.next) } : null);
+    return copy(this.head);
+  }
 
   enqueue(value) {
     const current = new ListNode(value)
@@ -37,8 +40,8 @@ class Queue {
     const current = this.head
     this.head = this.head.next;
 
-    if (!this.head) {
-      this.tail = undefined;
+    if(!this.head) {
+      this.tail = null;
     }
 
     return current.value;
