@@ -31,14 +31,14 @@ class Queue {
 
   dequeue() {
     if(!this.head) {
-      return null;
+      return undefined;
     }
 
     const current = this.head
     this.head = this.head.next;
 
     if (!this.head) {
-      this.tail = null;
+      this.tail = undefined;
     }
 
     return current.value;
